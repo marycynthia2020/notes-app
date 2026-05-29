@@ -3,13 +3,13 @@
 use App\Http\Controllers\Auth\RegisterUserController;
 use App\Http\Controllers\Auth\SessionController;
 use App\Http\Controllers\NoteController;
-use App\Models\Note;
 use Illuminate\Support\Facades\Route;
 
 
 
 Route::middleware(['auth'])->group(function () {
-    Route::delete('/logout', [SessionController::class, 'dsestroy'])->name('logout');
+     Route::get('/logout', [SessionController::class, 'create'])->name('logout');
+    Route::delete('/logout', [SessionController::class, 'destroy'])->name('logout');
     
     Route::redirect('/', '/notes');
     Route::get('/notes', [NoteController::class, 'index'])->name('notes.index');

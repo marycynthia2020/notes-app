@@ -20,10 +20,7 @@
             <div
                 class="text-white absolute inset-y-0 right-0 gap-3 flex items-center sm:static sm:inset-auto sm:ml-6 sm:pr-0">
                 @auth
-                    <a href="{{ route('logout') }}"
-                        class="bg-gray-950 px-6 py-2 rounded-sm cursor-pointer  hover:text-white focus:outline-2 focus:outline-offset-2 focus:outline-indigo-500">
-                        Logout
-                    </a>
+                    @include('auth.logout')
                 @else
                     <a href="{{ route('login.create') }}"
                         class="bg-gray-950 px-6 py-2 rounded-sm cursor-pointer  hover:text-white focus:outline-2 focus:outline-offset-2 focus:outline-indigo-500">

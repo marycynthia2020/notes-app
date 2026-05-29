@@ -4,19 +4,22 @@ namespace App\Http\Controllers\Auth;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class SessionController extends Controller
 {
-     public function create(){
+    public function create()
+    {
         return view('auth.login');
     }
 
-     public function store(){
-        
-    }
+    public function store() {}
 
-
-     public function destroy(){
-        
+    public function destroy(Request $request)
+    {
+        Auth::logout();
+        $request->session()->invalidate();
+        $request->session()->regenerateToken();
+        return redirect('/');
     }
 }
