@@ -21,7 +21,6 @@ class NoteController extends Controller
     public function store(CreateNoteRequest $request){
 
         Note::create($request->all());
-        dd(Auth::user());
         return redirect()->route('notes.index');
     }
 
