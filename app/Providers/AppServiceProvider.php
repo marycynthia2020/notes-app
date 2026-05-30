@@ -22,11 +22,5 @@ class AppServiceProvider extends ServiceProvider
      * Bootstrap any application services.
      */
     public function boot(): void
-    {
-        Gate::define('view-notes', function (User $user, Note $note) {
-            return $user->id === $note->user_id
-            ? Response::allow()
-            : Response::denyAsNotFound();
-        });
-    }
+    {}
 }
