@@ -17,6 +17,7 @@
                             <a href="{{ route('notes.create') }}"
                                 class="{{ request()->is('notes/create') ? 'bg-gray-950' : '' }} rounded-md px-3 py-2 text-sm font-medium text-gray-300 hover:bg-white/5 hover:text-white">Create
                                 New Note</a>
+
                         @endauth
 
                     </div>

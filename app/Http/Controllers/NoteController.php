@@ -7,13 +7,12 @@ use App\Http\Requests\UpdateNoteRequest;
 use App\Models\Note;
 use App\Models\User;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Gate;
 
 class NoteController extends Controller
 {
     public function index(Request $request){
-       $user = $request->user();
-       $notes = $user->notes()->get();
+       $notes = $request->user()->notes()->get();
         return view('notes.index', ['notes' => $notes]);
     }
 
@@ -28,14 +27,23 @@ class NoteController extends Controller
     }
 
     public function show(Note $note){
+        if(!Gate::allows('view-notes', $note)){
+            abort(403);
+        }
         return view('notes.show', ['note' => $note]);
     }
 
     public function edit(Note $note){
+         if(!Gate::allows('view-notes', $note)){
+            abort(403);
+        }
         return view('notes.edit', ['note' => $note]);
     }
 
     public function update(UpdateNoteRequest $request, Note $note){
+         if(!Gate::allows('view-notes', $note)){
+            abort(403);
+        }
         $note->title = $request->title;
         $note->description = $request->description;
         $note->save();
@@ -43,6 +51,9 @@ class NoteController extends Controller
     }          
     
     public function destroy(Note $note){
+         if(!Gate::allows('view-notes', $note)){
+            abort(403);
+        };
         $note->delete();
 
         return redirect()->route('notes.index');
