@@ -9,9 +9,13 @@ use Illuminate\Database\Eloquent\Model;
 #[WithoutTimestamps]
 class Note extends Model
 {
+   
     public $fillable = [
         'title',
-        'description'
+        'description',
     ];
 
+    public function user(){
+       return $this->belongsTo(User::class);
+    }
 }

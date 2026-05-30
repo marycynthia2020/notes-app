@@ -20,7 +20,6 @@ class RegisterUserController extends Controller
             'email' => $request->email,
             'password' => Hash::make($request->password)
         ]);
-        Auth::login($user);
-        return redirect()->route('notes.index');
+        return redirect()->route('login');
     }
 }

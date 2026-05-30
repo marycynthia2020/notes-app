@@ -7,11 +7,15 @@ use Illuminate\Support\Facades\Route;
 
 
 
+ Route::get('/', function (){
+    return view('home');
+ });
+
 Route::middleware(['auth'])->group(function () {
      Route::get('/logout', [SessionController::class, 'create'])->name('logout');
     Route::delete('/logout', [SessionController::class, 'destroy'])->name('logout');
     
-    Route::redirect('/', '/notes');
+   
     Route::get('/notes', [NoteController::class, 'index'])->name('notes.index');
     Route::get('/notes/create', [NoteController::class, 'create'])->name('notes.create');
     Route::post('/notes', [NoteController::class, 'store'])->name('notes.store');
@@ -26,5 +30,5 @@ Route::middleware(['guest'])->group(function (){
     Route::post('/register', [RegisterUserController::class, 'store'])->name('register.store');
     
     Route::get('/login', [SessionController::class, 'create'])->name('login');
-    Route::post('/login', [SessionController::class, 'store'])->name('login.create');
+    Route::post('/login', [SessionController::class, 'store'])->name('login.store');
 });

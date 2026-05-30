@@ -5,12 +5,15 @@ namespace App\Http\Controllers;
 use App\Http\Requests\CreateNoteRequest;
 use App\Http\Requests\UpdateNoteRequest;
 use App\Models\Note;
+use App\Models\User;
+use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
 class NoteController extends Controller
 {
-    public function index(){
-        $notes = Note::all()->reverse();
+    public function index(Request $request){
+       $user = $request->user();
+       $notes = $user->notes()->get();
         return view('notes.index', ['notes' => $notes]);
     }
 
@@ -19,8 +22,8 @@ class NoteController extends Controller
     }
 
     public function store(CreateNoteRequest $request){
-
-        Note::create($request->all());
+    
+        $request->user()->notes()->create($request->validated());
         return redirect()->route('notes.index');
     }
 

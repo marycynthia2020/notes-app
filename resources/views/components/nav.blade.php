@@ -8,11 +8,16 @@
                 <div class="hidden sm:ml-6 sm:block">
                     <div class="flex space-x-4">
                         <!-- Current: "bg-gray-950/50 text-white", Default: "text-gray-300 hover:bg-white/5 hover:text-white" -->
-                        <a href="{{ route('notes.index') }}"
-                            class=" {{ request()->is('notes', '/') ? 'bg-gray-950' : '' }} rounded-md px-3 py-2 text-sm font-medium text-gray-300 hover:bg-white/5 hover:text-white">Home</a>
-                        <a href="{{ route('notes.create') }}"
-                            class="{{ request()->is('notes/create') ? 'bg-gray-950' : '' }} rounded-md px-3 py-2 text-sm font-medium text-gray-300 hover:bg-white/5 hover:text-white">Create
-                            New Note</a>
+                        <a href="/"
+                            class="{{ request()->is('notes/create') ? 'bg-gray-950' : '' }} rounded-md px-3 py-2 text-sm font-medium text-gray-300 hover:bg-white/5 hover:text-white">Home</a>
+
+                        @auth
+                            <a href="{{ route('notes.index') }}"
+                                class=" {{ request()->is('notes') ? 'bg-gray-950' : '' }} rounded-md px-3 py-2 text-sm font-medium text-gray-300 hover:bg-white/5 hover:text-white">Notes</a>
+                            <a href="{{ route('notes.create') }}"
+                                class="{{ request()->is('notes/create') ? 'bg-gray-950' : '' }} rounded-md px-3 py-2 text-sm font-medium text-gray-300 hover:bg-white/5 hover:text-white">Create
+                                New Note</a>
+                        @endauth
 
                     </div>
                 </div>
@@ -22,7 +27,7 @@
                 @auth
                     @include('auth.logout')
                 @else
-                    <a href="{{ route('login.create') }}"
+                    <a href="{{ route('login') }}"
                         class="bg-gray-950 px-6 py-2 rounded-sm cursor-pointer  hover:text-white focus:outline-2 focus:outline-offset-2 focus:outline-indigo-500">
                         Login
                     </a>
