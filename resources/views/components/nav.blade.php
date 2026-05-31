@@ -1,6 +1,49 @@
-<!-- Include this script tag or install `@tailwindplus/elements` via npm: -->
-<!-- <script src="https://cdn.jsdelivr.net/npm/@tailwindplus/elements@1" type="module"></script> -->
-<nav
+    <div class="navbar bg-base-100  shadow-2xl">
+        <div class="navbar-start">
+            <div class="dropdown">
+                <div tabindex="0" role="button" class="btn btn-ghost lg:hidden">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24"
+                        stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                            d="M4 6h16M4 12h8m-8 6h16" />
+                    </svg>
+                </div>
+                <ul tabindex="-1"
+                    class="menu menu-sm dropdown-content bg-base-100 rounded-box z-1 mt-3 w-52 p-2 shadow">
+                        <li><a href="{{ route('notes.index') }}" class="{{ request()->is('notes') ? 'text-primary' : '' }}">Notes</a></li>
+                        <li href="{{ route('notes.create') }}" class="{{ request()->is('notes/create') ? 'text-primary' : '' }}"><a>New Notes</a></li>
+                      @guest
+                            <li>  <a class="btn text-primary bg-white " href= "{{ route('register.create') }}">Register</a></li>
+                      @endguest
+                </ul>
+            </div>
+            <a href='/notes' class="btn btn-ghost text-xl">Notes<span class='text-primary'>Hub</span></a>
+        </div>
+        <div class="navbar-center hidden lg:flex">
+            <ul class="menu menu-horizontal px-1">
+                    <li><a href="{{ route('notes.index') }}" class="{{ request()->is('notes') ? 'text-primary' : '' }}">Notes</a></li>
+                    <li><a href="{{ route('notes.create') }}" class="{{ request()->is('notes/create') ? 'text-primary' : '' }}">New Notes</a></li>
+            </ul>
+        </div>
+        <div class="navbar-end gap-3">
+                 @auth
+                     @include('auth.logout')
+                     @else
+                     <a class="btn bg-primary px-6" href="{{ route('login') }}">Login</a>
+                     <a class="btn hidden lg:flex text-primary bg-white " href= "{{ route('register.create') }}">Register</a>
+                 @endauth
+                 
+        </div>
+    </div>
+
+
+
+
+
+
+
+
+{{-- <nav
     class="relative bg-gray-800 after:pointer-events-none after:absolute after:inset-x-0 after:bottom-0 after:h-px after:bg-white/10">
     <div class="mx-auto max-w-7xl px-2 sm:px-6 lg:px-8">
         <div class="relative flex h-16 items-center justify-between">
@@ -8,9 +51,6 @@
                 <div class="hidden sm:ml-6 sm:block">
                     <div class="flex space-x-4">
                         <!-- Current: "bg-gray-950/50 text-white", Default: "text-gray-300 hover:bg-white/5 hover:text-white" -->
-                        <a href="/"
-                            class="{{ request()->is('notes/create') ? 'bg-gray-950' : '' }} rounded-md px-3 py-2 text-sm font-medium text-gray-300 hover:bg-white/5 hover:text-white">Home</a>
-
                         @auth
                             <a href="{{ route('notes.index') }}"
                                 class=" {{ request()->is('notes') ? 'bg-gray-950' : '' }} rounded-md px-3 py-2 text-sm font-medium text-gray-300 hover:bg-white/5 hover:text-white">Notes</a>
@@ -40,4 +80,4 @@
             </div>
         </div>
     </div>
-</nav>
+</nav> --}}
