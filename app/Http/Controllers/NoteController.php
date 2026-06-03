@@ -54,7 +54,7 @@ class NoteController extends Controller
             $note->description = $request->description;
             $note->save();
 
-            return redirect()->route('notes.show', ['note' => $note]);
+            return redirect()->route('notes.show', ['note' => $note])->with('success', 'Note updated');
         }
         abort(403);
     }
@@ -64,6 +64,6 @@ class NoteController extends Controller
 
         Gate::authorize('update', $note);
         $note->delete();
-        return redirect()->route('notes.index');
+        return redirect()->route('notes.index')->with('success', 'Note deleted');
     }
 }
