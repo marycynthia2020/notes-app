@@ -1,12 +1,13 @@
 <x-layout>
-    <form method='POST' action="{{ route('notes.store') }}" class='bg-gray-950 max-w-xl p-10 mx-auto rounded-xl'>
+    <div class='min-h-screen flex items-center justify-center'>
+        <form method='POST' action="{{ route('notes.store') }}" class='w-full bg-gray-950 max-w-xl p-10 mx-auto rounded-xl'>
         @csrf
         <div class="space-y-12">
             <div class="border-b border-white/10 pb-12">
                 <h2 class="text-xl font-semibold text-white">Create a New Note</h2>
                 <p class="mt-1 text-lg text-gray-400">Lets know what you have in mind.</p>
 
-                <div class="mt-10 grid grid-cols-1 gap-x-6 gap-y-8 sm:grid-cols-6">
+                <div class="mt-10 space-y-8">
                     <div class="sm:col-span-4">
                         <label for="title" class="block text-sm/6 font-medium text-white">Title</label>
                         <div class="mt-2">
@@ -45,6 +46,7 @@
                 class="btn bg-primary px-6">Create</button>
         </div>
     </form>
+    </div>
 
 
 

@@ -5,7 +5,9 @@ use App\Http\Controllers\Auth\SessionController;
 use App\Http\Controllers\NoteController;
 use Illuminate\Support\Facades\Route;
 
-Route::redirect('/', 'notes');
+Route::get('/', function(){
+    return view('welcome');
+});
 Route::middleware(['auth'])->group(function () {
     Route::get('/logout', [SessionController::class, 'create'])->name('logout');
     Route::delete('/logout', [SessionController::class, 'destroy'])->name('logout');

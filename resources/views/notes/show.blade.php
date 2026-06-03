@@ -1,5 +1,5 @@
 <x-layout>
-    <div class="max-w-xl mx-auto">
+    <div class="max-w-xl mx-auto mt-15">
         <button class='btn btn-secondary mb-10 px-6  text-white '><a href="{{ route('notes.index') }}">Go home</a></button>
         @if ($note)
             <div class='card card-body shadow-2xl p-4 flex flex-col gap-4 border-2 border-gray-600  '>

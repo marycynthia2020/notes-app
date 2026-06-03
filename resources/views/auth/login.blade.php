@@ -1,11 +1,12 @@
 <x-layout>
-    <form method='POST' action="{{ route('login.store') }}" class='bg-gray-950 max-w-xl p-10 mx-auto rounded-xl'>
+    <div class='grid min-h-screen place-items-center '>
+        <form method='POST' action="{{ route('login.store') }}" class='w-full bg-gray-950 max-w-xl p-10  rounded-xl'>
         @csrf
         <div class="space-y-12">
             <div class="border-b border-white/10 pb-12">
                 <h2 class="text-xl font-semibold text-white">Login</h2>
 
-                <div class="mt-10 grid grid-cols-1 gap-x-6 gap-y-8 sm:grid-cols-6">
+                <div class="mt-10 space-y-8">
 
                     <div class="sm:col-span-4">
                         <label for="email" class="block text-sm/6 font-medium text-white">Email</label>
@@ -47,6 +48,7 @@
                 class="px-6 btn btn-primary">Login</button>
         </div>
     </form>
+    </div>
 
 
 

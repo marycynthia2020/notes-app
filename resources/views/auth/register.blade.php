@@ -1,11 +1,12 @@
 <x-layout>
-    <form method='POST' action="{{ route('register.store') }}" class='bg-gray-950 max-w-xl p-10 mx-auto rounded-xl'>
+   <div class='grid min-h-screen place-items-center '>
+     <form method='POST' action="{{ route('register.store') }}" class='w-full bg-gray-950 max-w-xl p-10 mx-auto rounded-xl'>
         @csrf
         <div class="space-y-12">
             <div class="border-b border-white/10 pb-12">
                 <h2 class="text-2xl font-semibold text-white">Register</h2>
 
-                <div class="mt-10 grid grid-cols-1 gap-x-6 gap-y-8 sm:grid-cols-6">
+                <div class="mt-10 space-y-8">
                     <div class="sm:col-span-4">
                         <label for="name" class="block text-sm/6 font-medium text-white">Name</label>
                         <div class="mt-2">
@@ -65,6 +66,7 @@
                 class="rounded-md bg-indigo-500 px-6 py-2  font-semibold text-white focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-500">Register</button>
         </div>
     </form>
+   </div>
 
 
 
