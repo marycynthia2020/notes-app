@@ -1,5 +1,5 @@
 <x-layout>
-    <form method='POST' action="{{ route('register.store') }}" class='bg-gray-950 max-w-2xl p-10 mx-auto rounded-xl'>
+    <form method='POST' action="{{ route('register.store') }}" class='bg-gray-950 max-w-xl p-10 mx-auto rounded-xl'>
         @csrf
         <div class="space-y-12">
             <div class="border-b border-white/10 pb-12">
@@ -10,11 +10,11 @@
                         <label for="name" class="block text-sm/6 font-medium text-white">Name</label>
                         <div class="mt-2">
                             <div
-                                class="flex items-center rounded-md bg-white/5 pl-3 outline-1 -outline-offset-1 outline-white/10 focus-within:outline-2 focus-within:-outline-offset-2 focus-within:outline-indigo-500">
+                                class="flex items-center rounded-md focus-within:outline-2 focus-within:-outline-offset-2 focus-within:outline-indigo-500">
 
                                 <input id="name" type="text" name="name" value="{{ old('name') }}"
                                     placeholder="John Doe"
-                                    class="block min-w-0 grow bg-transparent py-1.5 pr-3 pl-1 text-base text-white placeholder:text-gray-500 focus:outline-none sm:text-sm/6" />
+                                    class="block min-w-0 rounded-md border-gray-300 grow bg-transparent py-1.5 pr-3 pl-1 text-base text-white placeholder:text-gray-500 focus:outline-none sm:text-sm/6" />
 
                             </div>
                         </div>
@@ -25,11 +25,11 @@
                         <label for="email" class="block text-sm/6 font-medium text-white">Email</label>
                         <div class="mt-2">
                             <div
-                                class="flex items-center rounded-md bg-white/5 pl-3 outline-1 -outline-offset-1 outline-white/10 focus-within:outline-2 focus-within:-outline-offset-2 focus-within:outline-indigo-500">
+                                class="flex items-center rounded-md focus-within:outline-2 focus-within:-outline-offset-2 focus-within:outline-indigo-500">
 
                                 <input id="email" type="email" name="email" value="{{ old('email') }}"
                                     placeholder="jondoe@gmail.com"
-                                    class="block min-w-0 grow bg-transparent py-1.5 pr-3 pl-1 text-base text-white placeholder:text-gray-500 focus:outline-none sm:text-sm/6" />
+                                    class="block min-w-0 rounded-md border-gray-300 grow bg-transparent py-1.5 pr-3 pl-1 text-base text-white placeholder:text-gray-500 focus:outline-none sm:text-sm/6" />
 
                             </div>
                         </div>
@@ -42,11 +42,11 @@
                         <label for="password" class="block text-sm/6 font-medium text-white">Password</label>
                         <div class="mt-2">
                             <div
-                                class="flex items-center rounded-md bg-white/5 pl-3 outline-1 -outline-offset-1 outline-white/10 focus-within:outline-2 focus-within:-outline-offset-2 focus-within:outline-indigo-500">
+                                class="flex items-center rounded-md focus-within:outline-2 focus-within:-outline-offset-2 focus-within:outline-indigo-500">
 
                                 <input id="password" type="password" name="password" value="{{ old('password') }}"
                                     placeholder="*****"
-                                    class="block min-w-0 grow bg-transparent py-1.5 pr-3 pl-1 text-base text-white placeholder:text-gray-500 focus:outline-none sm:text-sm/6" />
+                                    class="block min-w-0 rounded-md border-gray-300 grow bg-transparent py-1.5 pr-3 pl-1 text-base text-white placeholder:text-gray-500 focus:outline-none sm:text-sm/6" />
 
                             </div>
                         </div>

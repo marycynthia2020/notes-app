@@ -27,7 +27,7 @@ class NoteController extends Controller
 
         $request->user()->notes()->create($request->validated());
 
-        return redirect()->route('notes.index');
+        return redirect()->route('notes.index')->with('success', 'Note created succesfully');
     }
 
     public function show(Request $request, Note $note)

@@ -6,7 +6,7 @@
     <link href="https://cdn.jsdelivr.net/npm/daisyui@5" rel="stylesheet" type="text/css" />
     <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
     <link href="https://cdn.jsdelivr.net/npm/daisyui@5/themes.css" rel="stylesheet" type="text/css" />
-    <title>Document</title>
+    <title>NoteHub</title>
      @fonts
 
         <!-- Styles / Scripts -->
@@ -20,6 +20,7 @@
 </head>
 <body>
     <x-nav />
+    <x-flash />
  <main class=' p-4 mt-10 max-w-360 mx-auto'>
        {{ $slot }}
  </main>
